@@ -5,16 +5,17 @@ def get(array, index, default=None):
     """
     Извлекает из списка значение по указанному индексу, если индекс существует.
     Если индекс не существует, возвращает значение по умолчанию.
-    Функция работает только с неотрицательными индексами.
+    Функция работает с отрицательными индексами, отсчитываемыми с конца списка.
     :param array: исходный список.
     :param index: индекс извлекаемого элемента.
     :param default: значение по-умолчанию.
     :return: значение по индексу или значение по-умолчанию.
     """
 
-    if 0 <= index < len(array):
+    if -len(array) <= index < len(array):
         return array[index]
     return default
+
 
 
 def my_slice(coll, start=None, end=None):
@@ -44,3 +45,6 @@ def my_slice(coll, start=None, end=None):
         normalized_end = end
 
     return coll[normalized_start:normalized_end]
+
+
+
